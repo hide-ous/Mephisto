@@ -13,11 +13,10 @@ RUN mkdir ~/.mephisto
 # we need to switch the shell to bash:
 SHELL ["/bin/bash", "-c"]
 RUN echo $'core: \n  main_data_directory: /mephisto/data' >> ~/.mephisto/config.yml
+RUN mkdir -p /mephisto/data
 
 RUN /usr/local/bin/python -m pip install --upgrade pip
 RUN cd /mephisto && pip install -e .
-#RUN curl -sSL https://install.python-poetry.org | python3 -
-#RUN cd /mephisto && poetry lock --no-update
-#RUN cd /mephisto && poetry install
+
 RUN mephisto check # Run mephisto check so a mock requester gets created
 CMD mephisto check
