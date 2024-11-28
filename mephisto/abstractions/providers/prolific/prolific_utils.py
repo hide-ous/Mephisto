@@ -433,6 +433,7 @@ def create_study(
             estimated_completion_time=int(estimated_completion_time_in_minutes),
             reward=int(reward_in_cents),
             eligibility_requirements=prolific_eligibility_requirements,
+            device_compatibility=['desktop'], #FIXME: dirty hack to add this unsupported feature
             submissions_config=dict(
                 max_submissions_per_participant=-1,
             ),
